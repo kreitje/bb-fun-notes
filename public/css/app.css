@@ -9617,6 +9617,22 @@ a.text-dark:focus {
   background: #f8f9fa;
 }
 
+.note.blue {
+  color: #fff;
+  background: blue;
+  border: 1px solid blue;
+}
+
+.note.blue textarea {
+  color: #fff;
+  background: blue;
+}
+
+.note.blue textarea:hover,
+.note.blue textarea:focus {
+  background: #0000ea;
+}
+
 .note.orange {
   background: #ffc905;
   border: 1px solid orange;

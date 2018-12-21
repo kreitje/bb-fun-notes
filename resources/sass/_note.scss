@@ -92,7 +92,19 @@
     }
 
     &.blue {
+        color: #fff;
+        background: blue;
+        border: 1px solid blue;
 
+        textarea {
+            color: #fff;
+            background: blue;
+
+            &:hover,
+            &:focus {
+                background: #0000ea;
+            }
+        }
     }
 
     &.black {
