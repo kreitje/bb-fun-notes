@@ -48,6 +48,9 @@ class NoteController extends Controller
                     ->firstOrFail();
 
         $note->note = $request->get('note');
+        $note->width = (int)$request->get('width', 0);
+        $note->height = (int)$request->get('height', 0);
+        $note->color = $request->get('color', 0);
         $note->save();
 
         return $note;
