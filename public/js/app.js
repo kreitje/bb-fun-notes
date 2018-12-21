@@ -1819,6 +1819,12 @@ __webpack_require__.r(__webpack_exports__);
     save: function save() {
       var _this = this;
 
+      if (this.editableNote.note === '') {
+        alert('Please enter a note.');
+        return false;
+      }
+
+      this.isSavingNote = true;
       var url = '/notes',
           method = 'POST';
 
@@ -1835,10 +1841,11 @@ __webpack_require__.r(__webpack_exports__);
         color: this.editableNote.color
       };
       axios.post(url, data).then(function (response) {
-        console.log(response);
         _this.isSavingNote = false;
 
         _this.$emit('noteSaved', response.data);
+      }).catch(function (err) {
+        console.log(err);
       });
     },
     deleteNote: function deleteNote() {
@@ -53837,7 +53844,7 @@ var render = function() {
         "button",
         {
           staticClass: "btn btn-primary btn-sm float-right",
-          attrs: { disabled: _vm.isSavingNote },
+          attrs: { disabled: _vm.isSavingNote || _vm.editableNote.note === "" },
           on: { click: _vm.save }
         },
         [

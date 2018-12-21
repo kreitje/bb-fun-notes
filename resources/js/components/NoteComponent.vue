@@ -13,7 +13,7 @@
             <option value="white">White</option>
         </select>
 
-        <button v-on:click="save" class="btn btn-primary btn-sm float-right" v-bind:disabled="isSavingNote">
+        <button v-on:click="save" class="btn btn-primary btn-sm float-right" v-bind:disabled="isSavingNote || editableNote.note === ''">
             <span v-if="!isSavingNote">Save</span>
             <span v-if="isSavingNote" v-cloak><i class="fas fa-spinner fa-spin"></i></span>
         </button>
@@ -57,6 +57,13 @@
 
         methods: {
             save() {
+                if (this.editableNote.note === '') {
+                    alert('Please enter a note.');
+                    return false;
+                }
+
+                this.isSavingNote = true;
+
                 let url = '/notes',
                     method = 'POST';
 
@@ -74,10 +81,11 @@
                 };
 
                 axios.post(url, data).then((response) => {
-                    console.log(response);
-
                     this.isSavingNote = false;
                     this.$emit('noteSaved', response.data);
+                }).catch((err) => {
+                    console.log(err);
+
                 });
             },
 
