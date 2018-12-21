@@ -8,7 +8,6 @@
 
         <select v-model="editableNote.color">
             <option value="blue">Blue</option>
-            <option value="black">Black</option>
             <option value="orange">Orange</option>
             <option value="red">Red</option>
             <option value="white">White</option>
@@ -52,7 +51,7 @@
             },
 
             formattedTimeDate() {
-                return moment(this.note.updated_at).fromNow();
+                return moment.utc(this.note.updated_at).fromNow();
             },
         },
 

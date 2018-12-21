@@ -1788,7 +1788,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -1813,7 +1812,7 @@ __webpack_require__.r(__webpack_exports__);
       return 'note-id-' + this.note.id;
     },
     formattedTimeDate: function formattedTimeDate() {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.note.updated_at).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_0___default.a.utc(this.note.updated_at).fromNow();
     }
   },
   methods: {
@@ -53825,8 +53824,6 @@ var render = function() {
         },
         [
           _c("option", { attrs: { value: "blue" } }, [_vm._v("Blue")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "black" } }, [_vm._v("Black")]),
           _vm._v(" "),
           _c("option", { attrs: { value: "orange" } }, [_vm._v("Orange")]),
           _vm._v(" "),
