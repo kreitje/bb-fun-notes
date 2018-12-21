@@ -1,0 +1,81 @@
+.note {
+    padding: 5px;
+    min-width: 250px;
+    display: inline-block;
+    margin-left: 10px;
+    float: left;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    textarea {
+        border: 0;
+        width: 100%;
+        min-height: 150px;
+
+        &:active,
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    &.red {
+        border: 1px solid #e3342f;
+        background: #f8342f;
+        color: #fff;
+
+        textarea {
+            background: #f8342f;
+
+            &:hover,
+            &:focus {
+                background: #c52e29;
+                color: #fff;
+            }
+        }
+    }
+
+    &.white {
+        border: 1px solid #333;
+        background: #fff;
+        color: #333;
+
+        textarea {
+            background: #fff;
+
+            &:hover,
+            &:focus {
+                background: #f8f9fa;
+            }
+        }
+    }
+
+    &.blue {
+
+    }
+
+    &.black {
+
+    }
+
+    &.orange {
+        border: 1px solid orange;
+        background: #ffc905;
+
+        textarea {
+            background: #ffc905;
+
+            &:hover,
+            &:focus {
+                background: #f7c100;
+            }
+        }
+    }
+
+    .title {
+        border-bottom: 1px;
+    }
+
+
+}
