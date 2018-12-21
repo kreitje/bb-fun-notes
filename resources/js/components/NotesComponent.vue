@@ -1,11 +1,16 @@
 <template>
-    <div class="container">
+    <div class="notes-container">
         <div v-if="isLoadingNotes">Fetching notes...</div>
         <div v-if="!isLoadingNotes" v-cloak>
-            <note v-for="note in notes" :note="note" :key="note.id"></note>
+            <note v-for="note in notes" :note="note" :key="note.id" v-on:noteSaved="refreshNotes"></note>
 
             <div v-if="!hasNewNote" class="add-new-note-block">
-                <button v-on:click="addNewNote">Add New Note</button>
+                <button type="button" v-on:click="addNewNote">
+                    <div class="icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    Add New Note
+                </button>
             </div>
         </div>
     </div>
@@ -26,16 +31,7 @@
         },
 
         mounted() {
-            this.isLoadingNotes = true;
-            axios.get('/?withAjax=1').then((response) => {
-                this.notes = response.data;
-                this.isLoadingNotes = false;
-
-                if (this.notes.length === 0) {
-
-                    this.addNewNote();
-                }
-            });
+            this.refreshNotes();
         },
 
         computed: {
@@ -55,6 +51,18 @@
                 };
 
                 this.notes.push(newNote);
+            },
+
+            refreshNotes() {
+                this.isLoadingNotes = true;
+                axios.get('/?withAjax=1').then((response) => {
+                    this.notes = response.data;
+                    this.isLoadingNotes = false;
+
+                    if (this.notes.length === 0) {
+                        this.addNewNote();
+                    }
+                });
             }
         }
     }

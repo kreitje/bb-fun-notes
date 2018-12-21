@@ -9523,26 +9523,35 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
 .note {
+  float: left;
   padding: 5px;
   min-width: 250px;
+  min-height: 200px;
+  position: relative;
   display: inline-block;
-  margin-left: 10px;
-  float: left;
+  margin: 10px 10px 0 0;
 }
 
 .note:first-child {
   margin-left: 0;
 }
 
+.note:nth-child(4n+4) {
+  margin-left: 0;
+}
+
+.note:nth-child(1),
+.note:nth-child(2),
+.note:nth-child(3),
+.note:nth-child(4) {
+  margin-top: 0;
+}
+
 .note textarea {
   border: 0;
   width: 100%;
+  height: 100%;
   min-height: 150px;
 }
 
@@ -9551,10 +9560,32 @@ a.text-dark:focus {
   outline: 0;
 }
 
+.note .title {
+  border-bottom: 1px;
+}
+
+.note .body {
+  min-height: 150px;
+  height: calc(100% - 50px);
+}
+
+.note .delete {
+  top: 0;
+  right: 0;
+  border: 0;
+  color: red;
+  background: none;
+  position: absolute;
+}
+
+.note .saving {
+  text-align: center;
+}
+
 .note.red {
-  border: 1px solid #e3342f;
-  background: #f8342f;
   color: #fff;
+  background: #f8342f;
+  border: 1px solid #e3342f;
 }
 
 .note.red textarea {
@@ -9563,14 +9594,18 @@ a.text-dark:focus {
 
 .note.red textarea:hover,
 .note.red textarea:focus {
+  color: #fff;
   background: #c52e29;
+}
+
+.note.red .delete {
   color: #fff;
 }
 
 .note.white {
-  border: 1px solid #333;
-  background: #fff;
   color: #333;
+  background: #fff;
+  border: 1px solid #333;
 }
 
 .note.white textarea {
@@ -9583,8 +9618,8 @@ a.text-dark:focus {
 }
 
 .note.orange {
-  border: 1px solid orange;
   background: #ffc905;
+  border: 1px solid orange;
 }
 
 .note.orange textarea {
@@ -9596,16 +9631,20 @@ a.text-dark:focus {
   background: #f7c100;
 }
 
-.note .title {
-  border-bottom: 1px;
+.add-new-note-block {
+  float: left;
+  padding: 80px 0;
+  min-width: 250px;
+  text-align: center;
+  display: inline-block;
 }
 
-.add-new-note-block {
-  padding: 5px;
-  min-width: 250px;
-  display: inline-block;
-  margin-left: 10px;
-  text-align: center;
-  float: left;
+.add-new-note-block button {
+  border: 0;
+  background: none;
+}
+
+.add-new-note-block i {
+  font-size: 50px;
 }
 
